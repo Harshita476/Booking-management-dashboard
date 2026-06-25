@@ -1,0 +1,38 @@
+import type { Metadata } from "next";
+import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import "./globals.css";
+import Providers from "@/components/Providers";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-plex-mono",
+  weight: ["400", "500"],
+});
+
+export const metadata: Metadata = {
+  title: "Saltline Charters — Private Sailing, Plotted to Your Day",
+  description:
+    "Private sailing charters out of Wickford Cove, Rhode Island. Captained, provisioned, plotted to your day.",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
+      <body className="bg-ink text-parchment font-body">
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}
