@@ -27,14 +27,15 @@ export default function Header() {
         </button>
 
         <nav
-          className={`
-            flex gap-8 items-center
-            md:relative md:translate-y-0 md:bg-transparent md:flex-row md:px-0 md:py-0 md:border-none
-            fixed top-[62px] left-0 right-0 bg-ink-deep flex-col items-start px-8 py-6 gap-5 border-b border-line
-            transition-transform duration-300
-            ${open ? "translate-y-0" : "-translate-y-[110%]"} md:!translate-y-0
-          `}
-        >
+             className={`
+               flex gap-8 items-center
+               md:relative md:translate-y-0 md:bg-transparent md:flex-row md:px-0 md:py-0 md:border-none
+               fixed top-[62px] left-0 right-0 bg-ink-deep flex-col items-start px-8 py-6 gap-5 border-b border-line
+               transition-all duration-300
+               ${open ? "translate-y-0 opacity-100 visible" : "-translate-y-[110%] opacity-0 invisible"}
+               md:!translate-y-0 md:!opacity-100 md:!visible
+    `}
+>
           <a href="#routes" className="text-[0.85rem] text-text-dim hover:text-parchment transition-colors" onClick={() => setOpen(false)}>
             Routes
           </a>
